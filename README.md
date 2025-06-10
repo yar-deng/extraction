@@ -28,4 +28,4 @@ Ensure custom_data.csv and last_extraction.txt are in the same folder as the not
 Data Source
 The dataset (custom_data.csv) was generated using Python’s Faker library, creating 100 realistic sales records with fields for order ID, order date, product name, price, customer name, and last-updated timestamp.
 Screenshots
-(To add screenshots, run the notebook, capture outputs (e.g., Full Extraction results) using a tool like Snipping Tool, save them in a screenshots folder, and link them here, e.g., ![Full Extraction](screenshots/full_extraction.png).)```
+(To add screenshots, run the notebook, capture outputs (e.g., Full Extraction results) using a tool like Snipping Tool, save them in a screenshots folder, and link them here, e.g., ![Full Extraction](screenshots/full_extraction.png).)
