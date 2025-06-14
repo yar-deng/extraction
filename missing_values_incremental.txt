@@ -1,0 +1,19 @@
+Missing Values Summary for Incremental Dataset
+
+Missing Values per Column:
+order_id            0
+customer_id         0
+order_date          0
+quantity            1
+unit_price          1
+product_category    0
+
+Percentage of Missing Values per Column:
+order_id             0.000000
+customer_id          0.000000
+order_date           0.000000
+quantity            33.333333
+unit_price          33.333333
+product_category     0.000000
+
+Total Missing Values: 2

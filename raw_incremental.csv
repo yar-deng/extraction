@@ -1,0 +1,4 @@
+order_id,customer_id,order_date,quantity,unit_price,product_category
+1010,C010,2024-01-03,3.0,40.0,Furniture
+1011,C011,2024/01/04,2.0,,Electronics
+1012,C012,2024-01-05,,15.0,Books

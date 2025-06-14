@@ -1,0 +1,8 @@
+order_id,customer_id,order_date,quantity,unit_price,product_category,total_price
+1001,C001,2023-10-01,2,20.0,Electronics,40.0
+1002,C002,2023-10-15,5,15.5,Clothing,77.5
+1003,C003,2023-11-01,3,25.0,Electronics,75.0
+1006,C006,2023-11-10,4,25.142857142857142,Furniture,100.57142857142857
+1007,C007,2023-12-01,2,50.0,Books,100.0
+1008,C008,2024-01-01,1,22.5,Clothing,22.5
+1009,C009,2024-01-02,6,18.0,Electronics,108.0
