@@ -125,7 +125,9 @@ GitHub Setup
    git remote add origin <your-repository-url>
    git push -u origin main
 
-#ETL Project
+
+
+##ETL Project
 Lab 6 – Load
 
 Overview
