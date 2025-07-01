@@ -124,3 +124,73 @@ GitHub Setup
 3. Push to GitHub:
    git remote add origin <your-repository-url>
    git push -u origin main
+
+#ETL Project
+Lab 6 – Load
+
+Overview
+
+This section explains that Lab 5 is the final phase of the ETL (Extract, Transform, Load) project, focusing on loading the transformed datasets from Lab 4 (transformed_full.csv and transformed_incremental.csv) into structured storage formats for analysis and querying. It emphasizes that the process is automated using a Python script named etl_load.py, located in the project directory ETL_Extract_<YourName>_<StudentID>/. The overview clarifies that this lab ensures the data is stored efficiently in formats suitable for both small-scale applications and larger data processing pipelines. It highlights the continuation from Lab 4, where the datasets were transformed, and explains that Lab 5 prepares the data for downstream use, such as generating reports, performing analytics, or integrating with other systems.
+
+Project Structure
+
+This section describes the organization of the project directory, which includes:
+
+The transformed_full.csv file, containing the complete transformed dataset from Lab 4.
+The transformed_incremental.csv file, containing the incremental transformed dataset from Lab 4.
+The etl_extract.ipynb file, a Jupyter Notebook from previous labs (e.g., Lab 4) for data extraction and transformation.
+The etl_load.py file, the Python script created for Lab 5 to handle data loading.
+The README.md file itself, providing project documentation.
+The .gitignore file, which specifies files and directories to exclude from version control.
+A loaded_data/ directory, which stores the output files: SQLite databases (full_data.db and incremental_data.db) and Parquet files (full_data.parquet and incremental_data.parquet).
+This structure ensures all components are organized and accessible within the project folder.
+Prerequisites
+
+This section outlines the requirements for running the etl_load.py script:
+
+A Python environment with version 3.8 or higher is needed.
+Required Python packages include pandas for data manipulation and Parquet file handling, and pyarrow for efficient Parquet operations. These can be installed using a package manager like pip.
+The sqlite3 module, which is included with Python, is used for database operations, so no additional installation is required.
+The input files (transformed_full.csv and transformed_incremental.csv) must be present in the project directory, as they are the outputs from Lab 4.
+Visual Studio Code (VS Code) is recommended as the development environment, with the Python extension installed to support script execution and debugging.
+Loading Method Used
+
+This section provides an in-depth explanation of the two storage formats used:
+
+SQLite Databases: The script loads each dataset into a separate SQLite database: full_data.db for the full dataset and incremental_data.db for the incremental dataset. SQLite is described as a lightweight, file-based database system that requires no server setup, making it ideal for local storage and SQL-based querying. The schema for each database table includes an id column as the primary key (integer), with other columns like customer name and product as text, quantity as an integer, unit price and total price as real numbers, and order date as text. This schema ensures data integrity and supports efficient querying.
+Parquet Files: The script also saves each dataset as a Parquet file: full_data.parquet and incremental_data.parquet. Parquet is described as a columnar storage format optimized for big data applications, offering high compression and fast read/write performance. It’s compatible with tools like pandas, Apache Spark, and other data processing frameworks, making it suitable for scalable analytics. The benefits of both formats are highlighted, noting SQLite’s simplicity for local use and Parquet’s efficiency for large datasets.
+Sample Code
+
+This section mentions that the etl_load.py script includes a section for loading the full dataset into a SQLite database. It describes the process of connecting to the database, writing the data to a table with a predefined schema, and closing the connection, without displaying the actual code. It notes that similar logic is applied to the incremental dataset and for saving both datasets as Parquet files, ensuring consistency across all loading operations.
+
+Output Location
+
+This section specifies where the loaded data is stored:
+
+SQLite Databases: The full dataset is stored in loaded_data/full_data.db as a table named full_data, and the incremental dataset is stored in loaded_data/incremental_data.db as a table named incremental_data. These databases can be queried using SQL for analysis.
+Parquet Files: The full dataset is saved as loaded_data/full_data.parquet, and the incremental dataset as loaded_data/incremental_data.parquet. These files are optimized for storage and can be read by data processing tools for further analysis.
+The section explains that the loaded_data/ directory is created automatically by the script if it doesn’t exist.
+Usage Instructions
+
+This section provides a step-by-step guide to running the script:
+
+Prepare the Environment: Install Python 3.8+, the required packages (pandas and pyarrow), and ensure the input CSV files from Lab 4 are in the project directory.
+Run the Script: Open VS Code, navigate to the project directory, and execute etl_load.py using a terminal command (python etl_load.py). The script will check for input files, create the output directory, load the data into SQLite and Parquet formats, and print confirmation messages.
+Verify Output: The script includes a verification step that displays the first five rows of each SQLite table and Parquet file to confirm successful loading.
+GitHub Update: Commit the etl_load.py, README.md, and .gitignore files to your GitHub repository. The .gitignore file ensures that output files (databases and Parquet files) are not included in version control. Use standard Git commands to add, commit, and push changes to the repository.
+Verification
+
+This section explains that the script includes a verification process to ensure the data was loaded correctly. It queries the SQLite databases to display the first five rows of the full_data and incremental_data tables and reads the Parquet files to show their first five rows using pandas. This step confirms that the data matches the expected schema and is accessible for further use.
+
+Notes
+
+This section includes additional information:
+
+The project directory name should be updated with your actual name and student ID (replacing <YourName>_<StudentID>).
+The script assumes the input CSV files have the expected columns (id, customer_name, product, quantity, unit_price, total_price, order_date) from Lab 4.
+If the input files are missing, the script will raise an error with a clear message indicating the issue.
+The SQLite schema is explicitly defined to maintain data consistency.
+The optional PostgreSQL/MySQL loading target was not implemented, as it wasn’t required for this lab.
+Users can extend the script by modularizing code into an etl_utils.py file if desired, though this is not included in the current implementation.
+.gitignore Description
+The .gitignore file is configured to exclude specific files and directories from version control to keep the GitHub repository clean. It prevents the loaded_data/ directory, all SQLite database files (with .db extension), and all Parquet files (with .parquet extension) from being committed. This ensures that only source files like etl_load.py, README.md, and .gitignore are tracked, while generated output files are ignored.
