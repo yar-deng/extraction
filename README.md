@@ -127,14 +127,14 @@ GitHub Setup
 
 
 
-##ETL Project
+# ETL Project
 Lab 6 – Load
 
-Overview
+# Overview
 
 This section explains that Lab 5 is the final phase of the ETL (Extract, Transform, Load) project, focusing on loading the transformed datasets from Lab 4 (transformed_full.csv and transformed_incremental.csv) into structured storage formats for analysis and querying. It emphasizes that the process is automated using a Python script named etl_load.py, located in the project directory ETL_Extract_<YourName>_<StudentID>/. The overview clarifies that this lab ensures the data is stored efficiently in formats suitable for both small-scale applications and larger data processing pipelines. It highlights the continuation from Lab 4, where the datasets were transformed, and explains that Lab 5 prepares the data for downstream use, such as generating reports, performing analytics, or integrating with other systems.
 
-Project Structure
+# Project Structure
 
 This section describes the organization of the project directory, which includes:
 
@@ -157,7 +157,7 @@ The input files (transformed_full.csv and transformed_incremental.csv) must be p
 Visual Studio Code (VS Code) is recommended as the development environment, with the Python extension installed to support script execution and debugging.
 Loading Method Used
 
-This section provides an in-depth explanation of the two storage formats used:
+# This section provides an in-depth explanation of the two storage formats used:
 
 SQLite Databases: The script loads each dataset into a separate SQLite database: full_data.db for the full dataset and incremental_data.db for the incremental dataset. SQLite is described as a lightweight, file-based database system that requires no server setup, making it ideal for local storage and SQL-based querying. The schema for each database table includes an id column as the primary key (integer), with other columns like customer name and product as text, quantity as an integer, unit price and total price as real numbers, and order date as text. This schema ensures data integrity and supports efficient querying.
 Parquet Files: The script also saves each dataset as a Parquet file: full_data.parquet and incremental_data.parquet. Parquet is described as a columnar storage format optimized for big data applications, offering high compression and fast read/write performance. It’s compatible with tools like pandas, Apache Spark, and other data processing frameworks, making it suitable for scalable analytics. The benefits of both formats are highlighted, noting SQLite’s simplicity for local use and Parquet’s efficiency for large datasets.
@@ -165,7 +165,7 @@ Sample Code
 
 This section mentions that the etl_load.py script includes a section for loading the full dataset into a SQLite database. It describes the process of connecting to the database, writing the data to a table with a predefined schema, and closing the connection, without displaying the actual code. It notes that similar logic is applied to the incremental dataset and for saving both datasets as Parquet files, ensuring consistency across all loading operations.
 
-Output Location
+# Output Location
 
 This section specifies where the loaded data is stored:
 
@@ -184,7 +184,7 @@ Verification
 
 This section explains that the script includes a verification process to ensure the data was loaded correctly. It queries the SQLite databases to display the first five rows of the full_data and incremental_data tables and reads the Parquet files to show their first five rows using pandas. This step confirms that the data matches the expected schema and is accessible for further use.
 
-Notes
+# Notes
 
 This section includes additional information:
 
